@@ -28,3 +28,5 @@ create table departments(
     primary key(department_id)
 );
  insert into departments(department_name, over_head_costs) values("fruit", 10);
+
+ 

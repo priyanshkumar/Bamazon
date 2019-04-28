@@ -101,11 +101,9 @@ function addInventory() {
     ])
     .then(function(prompt_res) {
       connection.query(
-        "update products set ? where ?",
+        "update products set stock_quantity = stock_quantity + ? where ?",
         [
-          {
-            stock_quantity: prompt_res.quantity
-          },
+          prompt_res.quantity,
           {
             item_id: prompt_res.id
           }

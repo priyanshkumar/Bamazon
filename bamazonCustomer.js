@@ -60,7 +60,7 @@ function productToOrder() {
                 {
                   stock_quantity: stocked_quantity - prompt_res.quantity,
                   product_sales:
-                    res[0].product_sales + prompt_res.quantity * res[0].price
+                    product_sales + prompt_res.quantity * res[0].price
                 },
                 {
                   item_id: prompt_res.id
