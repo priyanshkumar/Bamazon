@@ -39,7 +39,7 @@ function productToOrder() {
     .then(function(prompt_res) {
       var stocked_quantity;
       connection.query(
-        "select stock_quantity from products where ?",
+        "select stock_quantity, price, product_sales from products where ?",
         {
           item_id: prompt_res.id
         },
@@ -58,7 +58,9 @@ function productToOrder() {
               "update products set ? where ?",
               [
                 {
-                  stock_quantity: stocked_quantity - prompt_res.quantity
+                  stock_quantity: stocked_quantity - prompt_res.quantity,
+                  product_sales:
+                    res[0].product_sales + prompt_res.quantity * res[0].price
                 },
                 {
                   item_id: prompt_res.id
@@ -73,7 +75,5 @@ function productToOrder() {
           connection.end();
         }
       );
-
-      //validate(prompt_res, stocked_quantity);
     });
 }

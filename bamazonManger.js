@@ -25,7 +25,8 @@ function managerView() {
           "View Products for Sale",
           "View Low Inventory",
           "Add to Inventory",
-          "Add New Product"
+          "Add New Product",
+          "Exit"
         ]
       }
     ])
@@ -45,6 +46,10 @@ function managerView() {
         }
         case "Add New Product": {
           addNewProduct();
+          break;
+        }
+        case "Exit": {
+          connection.end();
           break;
         }
         default: {
