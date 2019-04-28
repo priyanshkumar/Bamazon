@@ -15,3 +15,16 @@ insert into products(product_name, department_name, price, stock_quantity) value
 ("Doritos","Chips",3.50, 55);
 
 select * from products;
+
+alter table products
+add column product_sales int default 0;
+
+select * from products;
+
+create table departments(
+	department_id int not null auto_increment,
+    department_name varchar(100) not null,
+    over_head_costs int not null,
+    primary key(department_id)
+);
+ insert into departments(department_name, over_head_costs) values("fruit", 10);
